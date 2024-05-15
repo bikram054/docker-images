@@ -4,13 +4,13 @@ on: workflow_dispatch
 
 jobs:
   build:
-    runs-on: docker
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
       run: docker build . --file Dockerfile --tag jupyter:latest
   deploy:
-    runs-on: docker
+    runs-on: self-hosted
     steps:
     - uses: actions/checkout@v4
     - name: Push the Docker image
